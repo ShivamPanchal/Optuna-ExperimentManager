@@ -1,0 +1,22 @@
+{
+ "optuna": {"name": "NRC", "direction": "maximize", "db": "SQLite",  "metric": "accuracy", "model" : "CNN"},
+ "hparams": {
+    "hp_filters"  : {"dtype": "int", "sampler": "categorical", "values": [64, 128, 256]},
+    "hp_kernel_size" : {"dtype": "int", "sampler": "categorical", "values": [3, 5]}, 
+    "hp_strides" : {"dtype": "int", "sampler": "categorical", "values": [1, 2]}, 
+    "hp_activation" : {"dtype": "string", "sampler": "categorical", "values": ["relu", "linear", "elu", "selu"]}, 
+    "optimizer" : {"dtype": "string", "sampler": "categorical", "values": ["sgd", "adam", "rmsprop"]} , 
+    "hp_lrmin" : {"dtype": "int", "sampler": "categorical", "values": 1e-5}, 
+    "hp_lrmax" : {"dtype": "int", "sampler": "categorical", "values": 1e-1}, 
+    "epochs": {"dtype": "int", "sampler": "categorical", "values": 10} , 
+    "batch_size": {"dtype": "int", "sampler": "categorical", "values": 256},
+    "n_estimators"  : {"dtype": "int", "sampler": "categorical", "values": [100, 200, 500]},
+    "max_depth" : {"dtype": "int", "sampler": "categorical", "values": [3, 5, 7, 9]}, 
+    "min_child_weight" : {"dtype": "int", "sampler": "categorical", "values": [3, 5, 9, 15, 20]}, 
+    "learning_rate" : {"dtype": "float", "sampler": "categorical", "values": [0.00001, 0.0001, 0.001, 0.01, 0.1]}, 
+    "scale_pos_weight" : {"dtype": "int", "sampler": "categorical", "values": [1, 10, 20, 50, 70, 100]} , 
+    "subsample" : {"dtype": "float", "sampler": "categorical", "values": [0.5, 0.6, 0.7, 0.8, 0.9]}, 
+    "colsample_bytree" : {"dtype": "float", "sampler": "categorical", "values": [0.5, 0.6, 0.7, 0.8, 0.9]}
+},
+ "data": {"data_path": "data/", "log_path": "logs/", "model_path": "models/", "num_classes" : 10}
+}
